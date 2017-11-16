@@ -2,13 +2,13 @@ import React from 'react'
 import Searchbar from './Searchbar'
 import Buttons from './Buttons'
 
-const Toolbar = () => {
+const Toolbar = ({submitSearch, displaySaved}) => {
 
   return (
     <div>
       This is the toolbar
-      <Searchbar />
-      <Buttons />
+      <Searchbar submitSearch={submitSearch} />
+      <Buttons displaySaved={displaySaved} />
     </div>
   )
 

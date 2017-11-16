@@ -1,9 +1,9 @@
 module.export = {
 
-  var Twit = require('twit')
+  const Twit = require('twit')
   // var config = require('./config/keys') //this is we import the config
 
-  var t = new Twit({
+  const t = new Twit({
     consumer_key: '6pqWkbCsxqFApKczNkkT7PkIz',
     consumer_secret: 'HOQctxlGDCNrnoXLBz9Uqv5bcXr9XmkEJofpv79q6u80YcshdX',
     access_token: '458781911-GyH59giIg3zK1uZITlrjoWduFY2bbbJSBQUWZ6yK',
@@ -31,7 +31,7 @@ module.export = {
     // console.log(data[0].trends);
     // console.log('DATA FROM API CALL: ', data.statuses);
 
-    let locations = data.statuses.map(item => item.user.location)
+    const locations = data.statuses.map(item => item.user.location)
     console.log('LOCATIONS FROM API CALL: ', locations);
   }
 

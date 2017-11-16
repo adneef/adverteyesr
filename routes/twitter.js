@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     access_token_secret: 'KOKGWEejvwL4CY8UT2PfYBMifYlYzIbLDRCVBRAzllb6w'
   })
 
-  t.get('search/tweets', { q: '#WednesdayWisdom', count: 200 }, gotData)
+  t.get('search/tweets', { q: '#ThrowbackThursday', count: 200 }, gotData)
 
   function gotData(err, data, response) {
     const locations = data.statuses.map(item => item.user.location)

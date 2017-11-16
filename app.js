@@ -12,7 +12,7 @@ const keys = require('./config/keys')
 require('./models/User')
 require('./services/passport')
 
-mongoose.connect(keys.mongoURI)
+// mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -43,7 +43,8 @@ app.use(passport.session())
 require('./routes/auth')(app)
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
+app.set('view engine', 'ejs')
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -57,8 +58,6 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/twitter', twitter)
 app.use('/api', api)
-
-app.set('view engine', 'ejs')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

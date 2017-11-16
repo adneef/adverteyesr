@@ -4,32 +4,33 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const cookieSession = require('cookie-session')
-const passport = require('passport')
+// const passport = require('passport')
 const keys = require('./config/keys')
-const twitterAPI = require('./public/javascripts/twitter-api')
+// const twitterAPI = require('./public/javascripts/twitter-api')
 
 require('./models/User')
-require('./services/passport')
+// require('./services/passport')
 
-mongoose.connect(keys.mongoURI)
+// mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-require('./routes/auth')(app)
+var twitter = require('./routes/twitter')
+// require('./routes/auth')(app)
 
 var app = express();
 
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-)
+// app.use(
+//   cookieSession({
+//     maxAge: 30 * 24 * 60 * 60 * 1000,
+//     keys: [keys.cookieKey]
+//   })
+// )
 
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/twitter', twitter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,5 +61,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(5000)
 
 module.exports = app;

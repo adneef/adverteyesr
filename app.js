@@ -12,7 +12,7 @@ const keys = require('./config/keys')
 require('./models/User')
 require('./services/passport')
 
-mongoose.connect(keys.mongoURI)
+// mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');

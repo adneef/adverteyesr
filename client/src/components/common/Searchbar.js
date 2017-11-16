@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Searchbar = ({submitSearch}) => {
+const Searchbar = ({submitSearch, testingAPIRoute}) => {
 
   const handleSearch = (e) => {
     e.preventDefault()
     console.log(e.target.search.value)
     submitSearch(e.target.search.value)
+    testingAPIRoute(e.target.search.value)
   }
   return (
 

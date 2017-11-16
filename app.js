@@ -16,20 +16,27 @@ mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-<<<<<<< HEAD
-=======
 var twitter = require('./routes/twitter')
 require('./routes/auth')(app)
->>>>>>> 9eb5b170b5dbfe00a0144aaf8c45792df3df2288
+=======
+var api = require('./routes/api')
+>>>>>>> did some work on components and fetch route
 
 var app = express();
 
+require('./routes/auth')(app)
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
   })
 )
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+  next()
+})
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -50,6 +57,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/twitter', twitter)
+app.use('/api', api)
+
+app.set('view engine', 'ejs')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -66,7 +76,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.sendStatus('error');
 });
 
 app.listen(5000)

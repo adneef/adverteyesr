@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 const keys = require('./config/keys')
+const twitterAPI = require('./public/javascripts/twitter-api')
 
 require('./models/User')
 require('./services/passport')

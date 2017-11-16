@@ -1,4 +1,4 @@
-module.export = {
+
 
   const Twit = require('twit')
   // var config = require('./config/keys') //this is we import the config
@@ -34,6 +34,3 @@ module.export = {
     const locations = data.statuses.map(item => item.user.location)
     console.log('LOCATIONS FROM API CALL: ', locations);
   }
-
-
-}

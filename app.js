@@ -17,14 +17,13 @@ mongoose.connect(keys.mongoURI)
 var index = require('./routes/index');
 var users = require('./routes/users');
 var twitter = require('./routes/twitter')
-require('./routes/auth')(app)
 
 var api = require('./routes/api')
-
 
 var app = express();
 
 require('./routes/auth')(app)
+
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -78,7 +77,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.sendStatus('error');
 });
-
-app.listen(5000)
 
 module.exports = app;

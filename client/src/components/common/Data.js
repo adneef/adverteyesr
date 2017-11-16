@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Data = () => {
+const Data = ({ getData }) => {
+
+  console.log(getData);
 
   return (
     <div>This is the data section</div>

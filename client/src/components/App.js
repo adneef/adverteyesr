@@ -5,6 +5,11 @@ import Data from './common/Data'
 
 class App extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = { locations: [] }
+  }
+
 
   getAPI() {
     const Twit = require('twit')
@@ -22,20 +27,7 @@ class App extends Component {
       const locations = data.statuses.map(item => item.user.location)
       console.log('LOCATIONS FROM API CALL: ', locations);
     }
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
 
 
   render() {
@@ -44,7 +36,7 @@ class App extends Component {
           <h1>Welcome to AdvertEyesr</h1>
           <Header />
           <Toolbar />
-          <Data />
+          <Data getData={this.getData.bind(this)} />
       </div>
     );
   }

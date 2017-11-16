@@ -4,15 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const mongoose = require('mongoose')
+const { mongoose } = require('./config/mongooseConfig')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 const keys = require('./config/keys')
 
 require('./models/User')
 require('./services/passport')
-
-mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');

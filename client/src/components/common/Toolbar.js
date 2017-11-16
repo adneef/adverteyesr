@@ -1,11 +1,15 @@
 import React from 'react'
 import Searchbar from './Searchbar'
-import
+import Buttons from './Buttons'
 
 const Toolbar = () => {
 
   return (
-    <div>This is the toolbar</div>
+    <div>
+      This is the toolbar
+      <Searchbar />
+      <Buttons />
+    </div>
   )
 
 }

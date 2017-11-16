@@ -16,8 +16,11 @@ mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+<<<<<<< HEAD
+=======
 var twitter = require('./routes/twitter')
 require('./routes/auth')(app)
+>>>>>>> 9eb5b170b5dbfe00a0144aaf8c45792df3df2288
 
 var app = express();
 
@@ -30,6 +33,11 @@ app.use(
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+require('./routes/auth')(app)
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

@@ -36,7 +36,7 @@ class App extends Component {
           <h1>Welcome to AdvertEyesr</h1>
           <Header />
           <Toolbar />
-          <Data getData={this.getData.bind(this)} />
+          <Data getData={this.getAPI.bind(this)} />
       </div>
     );
   }

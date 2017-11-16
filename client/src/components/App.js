@@ -18,17 +18,17 @@ class App extends Component {
     // this.setState({ messages: json, filtered: json })
   }
 
-  // async request (path, method = 'GET', body = null) {
-  //   if (body) {
-  //     body = JSON.stringify(body)
-  //   }
-  //   return await fetch(`${process.env.REACT_APP_API_URL}${path}`,
-  //   { method,
-  //     headers: {'Content-Type': 'application/json',
-  //             'Accept': 'application/json'},
-  //     body
-  //   })
-  // }
+  async request (path, method = 'GET', body = null) {
+    if (body) {
+      body = JSON.stringify(body)
+    }
+    return await fetch(`${process.env.REACT_APP_API_URL}${path}`,
+    { method,
+      headers: {'Content-Type': 'application/json',
+              'Accept': 'application/json'},
+      body
+    })
+  }
 
   submitSearch = async (value) => {
     // console.log('value being searched ', value)
@@ -42,7 +42,7 @@ class App extends Component {
 
   }
 
-  async testingAPIRoute(path, value) {
+  async testingAPIRoute(value) {
     let api = await fetch(`${process.env.REACT_APP_API_URL}/twitter`)
     console.log('THIS IS THE VALUE: ', value);
     console.log('THIS IS THE API ROUTE FROM CLIENT ', api);

@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
   t.get('search/tweets', { q: 'ThrowbackThursday', count: 200 }, gotData)
 
   function gotData(err, data, response) {
+    const
     const locations = data.statuses.map(item => item.user.location)
     console.log('LOCATIONS FROM API CALL: ', locations);
   }

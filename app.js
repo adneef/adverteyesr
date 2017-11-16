@@ -18,9 +18,9 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var twitter = require('./routes/twitter')
 require('./routes/auth')(app)
-=======
+
 var api = require('./routes/api')
->>>>>>> did some work on components and fetch route
+
 
 var app = express();
 

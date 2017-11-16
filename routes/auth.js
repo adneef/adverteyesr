@@ -2,29 +2,6 @@ const passport = require('passport')
 
 module.exports = (app) => {
 
-<<<<<<< HEAD
-  // app.get('/auth/google',
-  //   passport.authenticate('google', {scope: 'profile'})
-  // )
-  // app.get('/auth/google/callback',
-  //   passport.authenticate('google', {failureRedirect: '/login'}),
-  //   (req, res) => {
-  //
-  //     console.log('Successful google authentication')
-  //     res.redirect('/api/current_user');
-  //   }
-  // )
-  //
-  // app.get('/api/current_user', (req, res) => {
-  //   res.send(req.user)
-  //
-  // })
-  //
-  // app.get('/api/logout', (req, res) => {
-  //   req.logout()
-  //   res.send(req.user)
-  // })
-=======
   app.get('/auth/google',
     passport.authenticate('google', {scope: 'profile'})
   )
@@ -45,7 +22,7 @@ module.exports = (app) => {
     req.logout()
     res.send(req.user)
   })
->>>>>>> did some work on components and fetch route
+
 
 //   app.get('/auth/facebook', passport.authenticate('facebook'))
 //

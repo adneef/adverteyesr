@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -12,7 +12,7 @@ const keys = require('./config/keys')
 require('./models/User')
 require('./services/passport')
 
-// mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI)
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -74,7 +74,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.sendStatus('error');
+  res.send(err);
 });
 
 module.exports = app;

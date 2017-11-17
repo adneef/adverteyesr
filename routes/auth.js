@@ -10,7 +10,7 @@ module.exports = (app) => {
     (req, res) => {
 
       console.log('Successful google authentication')
-      res.redirect('/api/current_user');
+      res.redirect('/');
     }
   )
 

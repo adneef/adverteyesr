@@ -14,11 +14,21 @@ router.get('/', function(req, res, next) {
     access_token_secret: 'KOKGWEejvwL4CY8UT2PfYBMifYlYzIbLDRCVBRAzllb6w'
   })
 
-  t.get('search/tweets', { q: 'ThrowbackThursday', count: 200 }, gotData)
+  // t.get('search/tweets', { q: 'ThrowbackThursday' }, gotData)
+  // t.get('trends/place', { id: 1, count: 5 }, gotData)
+
+
+
 
   function gotData(err, data, response) {
-    const locations = data.statuses.map(item => item.user.location)
-    console.log('LOCATIONS FROM API CALL: ', locations);
+    console.log(data);
+    // console.log('SPECIFIC TWEET INFO 1: ', '\n', data.statuses[2], '\n', '\n', '\n');
+    // console.log('SPECIFIC TWEET INFO 2: ', '\n', data.statuses[3]);
+    // const locations = data.statuses.map(item => item.user.location)
+    // console.log('LOCATIONS FROM API CALL: ', location);
+    // const placeAndLocation = data.statuses.map(item => [item.place, item.user.location])
+
+    // console.log('PLACE FROM API CALL: ', placeAndLocation);
   }
 
 });

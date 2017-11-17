@@ -28,18 +28,20 @@ passport.use(
       console.log("access token:", accessToken)
       console.log("refresh token:", refreshToken)
       console.log("profile:", profile)
-      User.findOne({ googleId: profile.id })
-        .then((existingUser) => {
-          console.log('existingUser? ', existingUser);
-          if(existingUser) {
-            done(null, existingUser)
-          } else {
-            console.log('making new user');
-            new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, user))
-          }
-        })
+      // User.findOne({ googleId: profile.id })
+      //   .then((existingUser) => {
+          // console.log(dbtru)
+          // // console.log('existingUser? ', existingUser);
+          // if(existingUser) {
+          //   done(null, existingUser)
+          // } else {
+          //   console.log('making new user');
+          //   new User({ googleId: profile.id })
+          //   .save()
+          //   .then(user => done(null, user))
+          // }
+          done(null, true)
+        // })
     }
   )
 )

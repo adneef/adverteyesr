@@ -30,8 +30,8 @@ passport.use(
       console.log("profile:", profile)
       User.findOne({ googleId: profile.id })
         .then((existingUser) => {
-          console.log('existingUser? ', existingUser);
           if(existingUser) {
+            console.log('existingUser? ', existingUser);
             done(null, existingUser)
           } else {
             console.log('making new user');

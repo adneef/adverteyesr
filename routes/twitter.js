@@ -14,11 +14,32 @@ router.get('/', function(req, res, next) {
     access_token_secret: 'KOKGWEejvwL4CY8UT2PfYBMifYlYzIbLDRCVBRAzllb6w'
   })
 
-  t.get('search/tweets', { q: 'ThrowbackThursday', count: 200 }, gotData)
+  // t.get('search/tweets', { q: 'ThrowbackThursday', count: 200 }, gotData)
+
+  // united states
+  // t.get('trends/place', { id: 23424977, count: 10 }, gotData)
+
+  //denver co
+  t.get('trends/place', { id: 2391279 }, gotData)
+
 
   function gotData(err, data, response) {
-    const locations = data.statuses.map(item => item.user.location)
-    console.log('LOCATIONS FROM API CALL: ', locations);
+    // const locations = data.statuses.map(item => item.user.location)
+    // console.log('LOCATIONS FROM API CALL: ', locations);
+    let filteredTrends = []
+    let index = 1
+    const trends = data[0].trends.map(item => item.name)
+    const trendsWithVoluem = data[0].trends.filter(item => {
+      if (item.tweet_volume) {
+        filteredTrends.push({
+          id: index,
+          name: item.name,
+          tweets: item.tweet_volume
+        })
+        index++
+      }
+    })
+    console.log(filteredTrends);
   }
 
 });

@@ -3,10 +3,14 @@ const passport = require('passport')
 module.exports = (app) => {
 
   app.get('/auth/google',
-    passport.authenticate('google', {scope: 'profile'})
+    passport.authenticate('google', {scope: 'profile'}),
+    // (res) => {
+    //   rest.redirect('/auth/google/callback')
+    // }
   )
+
   app.get('/auth/google/callback',
-    passport.authenticate('google', {failureRedirect: '/login'}),
+    passport.authenticate('google', {scope: 'profile'}),
     (req, res) => {
 
       console.log('Successful google authentication')

@@ -10,10 +10,10 @@
     })
 
     // tweets by query, word appears in tweet
-    t.get('search/tweets', { q: '#WednesdayWisdom', count: 200 }, gotData)
+    // t.get('search/tweets', { q: '#WednesdayWisdom', count: 200 }, gotData)
 
     // current trends by specific location
-    // t.get('trends/place', { id: 1, count: 5 }, gotData)
+    t.get('trends/place', { id: 1, count: 10 }, gotData)
 
     // trends available near an area
     // t.get('trends/available', { q: 'snow' }, gotData)
